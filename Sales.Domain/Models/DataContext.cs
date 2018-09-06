@@ -7,6 +7,6 @@
         {
         }
 
-        public System.Data.Entity.DbSet<Sales.Common.Models.Product> Products { get; set; }
+        public DbSet<Common.Models.Product> Products { get; set; }
     }
 }

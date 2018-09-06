@@ -32,6 +32,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="$(MSBuildThisFileDirectory)Resources\Resources.resw" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Resource.resx">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Resource.es.resx">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Resource.pt.resx">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
   </ItemGroup>
 </Project>
