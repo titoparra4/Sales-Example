@@ -1,5 +1,6 @@
 ﻿namespace Sales.ViewModels
 {
+    using GalaSoft.MvvmLight.Command;
     using Sales.Common.Models;
     using Sales.Services;
     using System;
@@ -35,7 +36,17 @@
         private async void LoadProducts()
         {
             this.IsRefreshing = true;
-            var response = await this.apiService.GetList<Product>("http://salesapiti.azurewebsites.net", "/api", "/Products");
+
+            var connection = await this.apiService.CheckConnection();
+            if(!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert("Error", connection.Message, "Accept");
+                return;
+            }
+
+            var url = Application.Current.Resources["UrlAPI"].ToString();
+            var response = await this.apiService.GetList<Product>(url, "/api", "/Products");
             if (!response.IsSuccess)
             {
                 this.IsRefreshing = false;
@@ -48,6 +59,12 @@
             this.IsRefreshing = false;
         }
 
-
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new RelayCommand(LoadProducts);
+            }
+        }
     }
 }
