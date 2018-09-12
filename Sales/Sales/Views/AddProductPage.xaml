@@ -9,31 +9,72 @@
             BindingContext="{Binding AddProduct}">
         <StackLayout
             Padding="5">
-            <Label
-                Text="Description">                
-            </Label>
-            <Entry
-                Placeholder="Enter the product description">                
-            </Entry>
-            <Label
-                Text="Price">
-            </Label>
-            <Entry
-                Keyboard="Numeric"
-                Placeholder="Enter the product price">
-            </Entry>
-            <Label
-                Text="Remarks">
-            </Label>
-            <Editor
-                VerticalOptions="FillAndExpand">
-            </Editor>
-            <ActivityIndicator>
+                <Image
+                    Source="noproduct">                    
+                </Image>
+                <Label
+                    FontSize="Small"
+                    HorizontalOptions="Center"
+                    Text="Change Image">                    
+                </Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="Description"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="{Binding Description}"
+                        Placeholder="Enter the product description">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Text="Price"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Keyboard="Numeric"
+                        Text="{Binding Price}"
+                        Placeholder="Enter the product price">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        Text="Remarks"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Editor
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Text="{Binding Remarks}"
+                        VerticalOptions="FillAndExpand">
+                    </Editor>
+                </Grid>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}"
+                    VerticalOptions="CenterAndExpand">
             </ActivityIndicator>
             <Button
                 BackgroundColor="Navy"
                 BorderRadius="23"
+                Command="{Binding SaveCommand}"
                 HeightRequest="46"
+                IsEnabled="{Binding IsEnabled}"
                 Text="Save"
                 TextColor="White">
             </Button>
