@@ -1,12 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Sales.Views.AddProductPage">
+             x:Class="Sales.Views.AddProductPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Add Product">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Add Products"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <ScrollView
+            BindingContext="{Binding AddProduct}">
+        <StackLayout
+            Padding="5">
+            <Label
+                Text="Description">                
+            </Label>
+            <Entry
+                Placeholder="Enter the product description">                
+            </Entry>
+            <Label
+                Text="Price">
+            </Label>
+            <Entry
+                Keyboard="Numeric"
+                Placeholder="Enter the product price">
+            </Entry>
+            <Label
+                Text="Remarks">
+            </Label>
+            <Editor
+                VerticalOptions="FillAndExpand">
+            </Editor>
+            <ActivityIndicator>
+            </ActivityIndicator>
+            <Button
+                BackgroundColor="Navy"
+                BorderRadius="23"
+                HeightRequest="46"
+                Text="Save"
+                TextColor="White">
+            </Button>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

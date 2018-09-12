@@ -17,6 +17,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\InstanceLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ApiService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddProductViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ProductsViewModel.cs" />
